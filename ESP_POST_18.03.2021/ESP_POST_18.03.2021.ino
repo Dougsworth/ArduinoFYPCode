@@ -2,8 +2,9 @@
 #define DEBUG true
 
 SoftwareSerial esp8266(9,4); //RX IS 4 on arduino, TX is 9 on arduino
-String password = "BD9x388G";
-String accessPoint = "Digicel_WiFi_U957";
+//Add wifi router and password
+String password = "";
+String accessPoint = "";
 String data;
 String cipsend;
 
