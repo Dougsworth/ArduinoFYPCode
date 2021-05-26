@@ -2,9 +2,8 @@
 #define DEBUG true
 
 SoftwareSerial esp8266(9,4); //RX IS 4 on arduino, TX is 9 on arduino
-//Add wifi router and password
-String password = "";
-String accessPoint = "";
+String password = "BD9x388G";
+String accessPoint = "Digicel_WiFi_U957";
 String data;
 String cipsend;
 
@@ -28,15 +27,15 @@ void setup()
 void loop()
 {
 }
-void post()
+  void post()
 {
-  sendData ("AT+CIPSTART=\"TCP\",\"192.168.100.68\",3000\r\n", 5000, DEBUG);//5000 is the timeout variable
+  sendData ("AT+CIPSTART=\"TCP\",\"192.168.100.67\",3000\r\n", 5000, DEBUG);//5000 is the timeout variable
   delay(3000);
-
+  
   String sensorData = "{\"voltage\":\"4.7\", \"current\":\"2.21\", \"power\":\"220.27\"}";
   int sensorDatalength = sensorData.length();
 
-  data += "POST /datas HTTP/1.1\r\nHost: 192.168.100.68:3000\r\nContent-Type: application/json\r\nContent-Length: ";
+  data += "POST /datas HTTP/1.1\r\nHost: 192.168.100.67:3000\r\nContent-Type: application/json\r\nContent-Length: ";
   data += sensorDatalength;
   data += "\r\n\r\n";
   data += sensorData;
